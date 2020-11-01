@@ -1,12 +1,14 @@
 import "alpinejs";
-import styles from "../styles/app.pcss";
-// import RobotoWoff2 from "../fonts/Roboto.woff2";
+import styles from "../css/app.pcss";
+import PtSansRegular from "../fonts/pt-sans-regular.woff2";
 
 // App main
 const main = async () => {
-  // const LazySizes = await import(
-  //  /* webpackChunkName: "lazysizes" */ "lazysizes"
-  // );
+  const LazySizes = await import("lazysizes");
+  const LazySizesNativeLoading = await import(
+    "lazysizes/plugins/native-loading/ls.native-loading"
+    );
+  LazySizes.init();
 };
 
 main().then(() => {});

@@ -1,0 +1,28 @@
+.action {
+  @apply transition rounded-lg inline-flex items-center;
+
+  &,
+  &::after {
+    @apply ease-in-out duration-300;
+  }
+
+  &::after {
+    @apply transition-transform ml-1;
+    content: "→";
+  }
+
+  &:focus {
+    @apply shadow-outline outline-none;
+  }
+
+  &.active,
+  &:active {
+    @apply underline;
+  }
+
+  &:hover {
+    &::after {
+      @apply transform translate-x-1;
+    }
+  }
+}

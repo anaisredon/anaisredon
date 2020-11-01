@@ -1,3 +1,5 @@
+const defaultTheme = require("tailwindcss/defaultTheme");
+
 module.exports = {
   future: {
     // removeDeprecatedGapUtilities: true,
@@ -5,8 +7,17 @@ module.exports = {
   },
   purge: [],
   theme: {
-    extend: {},
+    fontFamily: {
+      title: ["Aviano", ...defaultTheme.fontFamily.serif],
+      subtitle: ["PT Sans", ...defaultTheme.fontFamily.sans],
+      body: ["Futura", ...defaultTheme.fontFamily.sans]
+    },
+    extend: {
+      fontSize: {
+        "7xl": "5rem"
+      }
+    }
   },
   variants: {},
-  plugins: [],
-}
+  plugins: []
+};
