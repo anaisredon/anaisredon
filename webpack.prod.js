@@ -9,15 +9,17 @@ const ImageMinimizerPlugin = require("image-minimizer-webpack-plugin");
 const CompressionPlugin = require("compression-webpack-plugin");
 const zlib = require("zlib");
 const FaviconsWebpackPlugin = require("favicons-webpack-plugin");
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 
 const glob = require("glob-all");
 
 function TailwindExtractor(content) {
   // Capture as liberally as possible, including things like `h-(screen-1.5)`
-  const broadMatches = content.match(/[^<>"'`\s]*[^<>"'`\s:!]/g) || [];
+  const broadMatches = content.match(/[^<>"'`\s]*[^<>"'`\s:]/g) || [];
 
   // Capture classes within other delimiters like .block(class="w-1/2") in Pug
-  const innerMatches = content.match(/[^<>"'`\s.(){}]*[^<>"'`\s.(){}:!]/g) || [];
+  const innerMatches =
+    content.match(/[^<>"'`\s.(){}]*[^<>"'`\s.(){}:]/g) || [];
 
   return broadMatches.concat(innerMatches);
 }
@@ -26,8 +28,7 @@ const configurePurgeCss = () => {
   let paths = [];
   // Configure whitelist paths
   for (const [key, value] of Object.entries([
-    "./templates/**/*.{twig,html}",
-    "./src/vue/**/*.{vue,html}",
+    "./src/templates/**/*.{twig,html}",
     "./src/js/**/*.js"
   ])) {
     paths.push(path.join(__dirname, value));
@@ -52,15 +53,9 @@ module.exports = {
     app: "./src/js/index.js"
   },
   devtool: "source-map",
-  devServer: {
-    contentBase: path.resolve(__dirname, "./src/templates/"),
-    port: "8081",
-    watchContentBase: true,
-    hot: true
-  },
   output: {
     filename: path.join("./js", "[name].[chunkhash].js"),
-    publicPath: "/dist/",
+    publicPath: "https://anaisredon.com/",
     path: path.resolve(__dirname, "dist")
   },
   module: {
@@ -77,24 +72,13 @@ module.exports = {
         ]
       },
       {
-        test: /\.svg$/i,
-        use: [
-          {
-            loader: "file-loader",
-            options: {
-              name: "img/[name].[hash].[ext]",
-              emitFile: false
-            }
-          }
-        ]
-      },
-      {
         test: /\.(png|jpe?g|gif|webp)$/i,
         use: [
           {
-            loader: "file-loader",
+            loader: "responsive-loader",
             options: {
-              name: "img/[name].[hash].[ext]"
+              adapter: require("responsive-loader/sharp"),
+              name: "img/[name]-[width].[hash].[ext]"
             }
           }
         ]
@@ -105,6 +89,24 @@ module.exports = {
           loader: "html-loader",
           options: {
             attributes: {
+              list: [
+                "...",
+                {
+                  tag: "img",
+                  attribute: "data-src",
+                  type: "src"
+                },
+                {
+                  tag: "img",
+                  attribute: "data-srcset",
+                  type: "srcset"
+                },
+                {
+                  tag: "source",
+                  attribute: "data-srcset",
+                  type: "srcset"
+                }
+              ],
               urlFilter: (attribute, value, resourcePath) => {
                 if (/\.(js|css|svg)$/.test(value)) {
                   return false;
@@ -140,6 +142,13 @@ module.exports = {
       }
     ]
   },
+  optimization: {
+    minimize: true,
+    minimizer: [
+      `...`,
+      new CssMinimizerPlugin(),
+    ],
+  },
   plugins: [
     new CleanWebpackPlugin({
       cleanOnceBeforeBuildPatterns: ["**/*"],
@@ -165,7 +174,7 @@ module.exports = {
     }),
     new HtmlWebpackPlugin({
       template: "./src/templates/index.html",
-      filename: "../index.html",
+      filename: "../index.html"
     }),
     new HtmlWebpackInlineSVGPlugin({
       runPreEmit: true,
@@ -174,8 +183,8 @@ module.exports = {
     new FaviconsWebpackPlugin({
       logo: "./src/img/favicon.svg",
       cache: true,
-      outputPath: "/img",
-      prefix: "/dist/img/",
+      outputPath: "/dist",
+      prefix: "img/",
       inject: true
     }),
     new ImageMinimizerPlugin({
@@ -184,7 +193,7 @@ module.exports = {
         plugins: [
           ["gifsicle", { interlaced: true }],
           ["mozjpeg", { quality: 85 }],
-          ["optipng", { optimizationLevel: 5 }],
+          ["optipng", { optimizationLevel: 3 }],
           [
             "svgo",
             {

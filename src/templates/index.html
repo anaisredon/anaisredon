@@ -2,45 +2,35 @@
 <html lang="fr">
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,minimum-scale=1" />
     <title>Anaïs Redon – Graphisme & Illustration</title>
-    <!-- Primary Meta Tags -->
-    <meta name="title" content="Meta Tags — Preview, Edit and Generate" />
+    <meta name="title" content="Anaïs Redon – Graphisme & Illustration" />
     <meta
       name="description"
-      content="With Meta Tags you can edit and experiment with your content then preview how your webpage will look on Google, Facebook, Twitter and more!"
+      content="Graphiste, illustratrice, et étudiante en 4ème année à l'ECV de Bordeaux, passionnée par le dessin, le design et sensible à l'univers du luxe."
     />
-
-    <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://metatags.io/" />
+    <meta property="og:url" content="https://anaisredon.com/" />
     <meta
       property="og:title"
-      content="Meta Tags — Preview, Edit and Generate"
+      content="Anaïs Redon – Graphisme & Illustration"
     />
     <meta
       property="og:description"
-      content="With Meta Tags you can edit and experiment with your content then preview how your webpage will look on Google, Facebook, Twitter and more!"
+      content="Graphiste, illustratrice, et étudiante en 4ème année à l'ECV de Bordeaux, passionnée par le dessin, le design et sensible à l'univers du luxe."
     />
-    <meta
-      property="og:image"
-      content="https://metatags.io/assets/meta-tags-16a33a6a8531e519cc0936fbba0ad904e52d35f34a46c97a2c9f6f7dd7d336f2.png"
-    />
-
-    <!-- Twitter -->
+    <meta property="og:image" content="/dist/img/cover.jpg" />
     <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content="https://metatags.io/" />
+    <meta property="twitter:url" content="https://anaisredon.com/" />
     <meta
       property="twitter:title"
-      content="Meta Tags — Preview, Edit and Generate"
+      content="Anaïs Redon – Graphisme & Illustration"
     />
     <meta
       property="twitter:description"
-      content="With Meta Tags you can edit and experiment with your content then preview how your webpage will look on Google, Facebook, Twitter and more!"
+      content="Graphiste, illustratrice, et étudiante en 4ème année à l'ECV de Bordeaux, passionnée par le dessin, le design et sensible à l'univers du luxe."
     />
-    <meta
-      property="twitter:image"
-      content="https://metatags.io/assets/meta-tags-16a33a6a8531e519cc0936fbba0ad904e52d35f34a46c97a2c9f6f7dd7d336f2.png"
-    />
+    <meta property="twitter:image" content="/dist/img/cover.jpg" />
   </head>
   <body class="font-body antialiased">
     <header
@@ -56,34 +46,53 @@
         <span class="font-bold">Graphisme</span><br />& Illustration
       </div>
     </header>
-    <main class="relative overflow-hidden">
-      <section class="max-w-screen-xl mx-auto z-0 flex flex-col lg:flex-row">
-        <div>
+
+    <main class="overflow-hidden">
+      <section class="max-w-screen-xl mx-auto flex flex-col lg:flex-row">
+        <div class="w-full">
           <div
             class="bg-black h-2 lg:h-8 w-40 lg:w-96 ml-auto box-content pl-5"
           ></div>
-          <div class="w-full flex relative">
-            <img
-              class="z-0 opacity-50 absolute object-cover h-full w-full object-right-top"
-              src="../img/background.jpg"
-              alt="Photo de fond"
-            />
+          <div class="flex relative">
+            <picture class="z-0 absolute">
+              <source
+                data-srcset="../img/background.jpg?size=480 480w, ../img/background.jpg?size=720 720w, ../img/background.jpg?size=1280 1280w"
+                type="image/jpg"
+              />
+              <img
+                loading="lazy"
+                class="lazyload blur object-cover object-right-top h-full w-full opacity-50"
+                src="../img/background.jpg?size=64"
+                data-src="../img/background.jpg?size=480"
+                alt="Photo de fond"
+                sizes="100vw"
+              />
+            </picture>
             <div
-              class="z-10 flex flex-col lg:flex-row px-5 lg:pl-0 lg:pr-16 py-16"
+              class="w-full z-10 flex flex-col md:flex-row justify-between px-5 lg:pl-0 lg:pr-16 py-16"
             >
-              <div
-                class="absolute right-0 top-0 mt-3 lg:mt-0 lg:relative lg:-ml-24 xl:-ml-32 -mr-40 xs:-mr-24 lg:mr-0"
+              <picture
+                class="z-0 w-72 md:w-full lg:ml-0 h-auto absolute top-0 right-0 md:relative -mr-32 sm:-mr-24 lg:mr-0 mt-3 md:mt-0 lg:-ml-20 md:w-6/12 lg:w-auto order-last lg:order-first"
               >
+                <source
+                  data-srcset="../img/portrait.png?size=480 480w, ../img/portrait.png?size=720 720w, ../img/portrait.png?size=850 850w"
+                  type="image/jpg"
+                />
                 <img
-                  src="../img/portrait.png"
+                  src="../img/portrait.png?size=64"
+                  data-src="../img/portrait.png?size=480"
+                  sizes="100vw"
+                  loading="lazy"
                   alt="Illustration d'un portrait"
-                  class="opacity-0 z-0 w-64 md:w-72 lg:w-full lg:ml-0 h-auto animation-ease-out animation-duration-1000 transform animation-delay-1500"
+                  class="lazyload blur opacity-0 animation-ease-out animation-duration-1000 transform animation-delay-1500"
                   x-data="{'isTriggered': false}"
                   :class="{'animation-slide-down': isTriggered}"
                   x-on:load.window="isTriggered = true"
                 />
-              </div>
-              <div class="z-10 flex flex-col justify-start lg:items-end">
+              </picture>
+              <div
+                class="w-full md:w-6/12 lg:w-auto z-10 flex flex-col justify-start lg:items-end"
+              >
                 <div
                   class="opacity-0 animation-ease-out animation-duration-1000 transform  lg:max-w-lg lg:text-right"
                   x-data="{'isTriggered': false}"
@@ -91,17 +100,17 @@
                   x-on:load.window="isTriggered = true"
                 >
                   <h1
-                    class="font-title text-5xl lg:text-8xl leading-none tracking-widest-xl lg:-mr-6"
+                    class="max-w-sm md:max-w-none font-title text-5xl md:text-8xl leading-none tracking-widest-xl lg:-mr-6"
                   >
                     Anaïs Redon
                   </h1>
-                  <h2 class="font-subtitle text-2xl lg:text-5xl uppercase">
+                  <h2 class="font-subtitle text-2xl md:text-5xl uppercase">
                     Bordeaux
                   </h2>
                 </div>
 
-                <div class="order-3 lg:order-2">
-                  <p class="lg:max-w-xs mt-12">
+                <div class="order-3 lg:order-2 lg:max-w-xs">
+                  <p class="mt-12">
                     Née au Japon d’une famille purement scientifique, ma passion
                     à rompu avec les codes familiaux. Depuis que je suis en
                     capacité de tenir un crayon, je me nourris de cette passion.
@@ -115,7 +124,7 @@
                     ce domaine professionnel.
                   </p>
 
-                  <p class="lg:max-w-xs mt-6">
+                  <p class="mt-6">
                     Aujourd’hui étudiante en master à l’ECV Bordeaux, je suis
                     fortement inspirée par le domaine du luxe, et j'aime
                     orienter mon travail dans cet esprit, à la recherche de
@@ -150,7 +159,10 @@
             target="_blank"
             rel="nofollow noreferrer noopener"
             x-data="{'isTriggered': false}"
-            :class="{'animation-slide-right': isTriggered}"
+            :class="{
+              'animation-slide-right': window.innerWidth >= 1024 ? isTriggered : false,
+              'animation-slide-down': window.innerWidth < 1024 ? isTriggered : false
+            }"
             class="opacity-0 animation-ease-out animation-duration-1000 transform"
             x-on:load.window="isTriggered = true"
           >
@@ -165,7 +177,10 @@
             target="_blank"
             rel="nofollow noreferrer noopener"
             x-data="{'isTriggered': false}"
-            :class="{'animation-slide-right': isTriggered}"
+            :class="{
+              'animation-slide-right': window.innerWidth >= 1024 ? isTriggered : false,
+              'animation-slide-down': window.innerWidth < 1024 ? isTriggered : false
+            }"
             class="opacity-0 animation-ease-out animation-duration-1000 animation-delay-500 transform"
             x-on:load.window="isTriggered = true"
           >
@@ -176,28 +191,16 @@
             />
           </a>
           <a
-            href="mailto:hello@anaisredon.com"
-            target="_blank"
-            rel="nofollow noreferrer noopener"
-            x-data="{'isTriggered': false}"
-            :class="{'animation-slide-right': isTriggered}"
-            class="opacity-0 animation-ease-out animation-duration-1000 animation-delay-1000 transform"
-            x-on:load.window="isTriggered = true"
-          >
-            <img
-              class="h-6 lg:w-6"
-              src="./src/img/email.svg"
-              alt="Logo d'une boîte mail"
-            />
-          </a>
-          <a
             href="https://www.behance.net/anaisredon"
             target="_blank"
             rel="nofollow noreferrer noopener"
             x-cloak
             x-data="{'isTriggered': false}"
-            :class="{'animation-slide-right': isTriggered}"
-            class="opacity-0 animation-ease-out animation-duration-1000 animation-delay-1500 transform"
+            :class="{
+              'animation-slide-right': window.innerWidth >= 1024 ? isTriggered : false,
+              'animation-slide-down': window.innerWidth < 1024 ? isTriggered : false
+            }"
+            class="opacity-0 animation-ease-out animation-duration-1000 animation-delay-1000 transform"
             x-on:load.window="isTriggered = true"
           >
             <img
@@ -206,13 +209,33 @@
               alt="Logo de Behance"
             />
           </a>
+          <a
+            href="mailto:hello@anaisredon.com"
+            target="_blank"
+            rel="nofollow noreferrer noopener"
+            x-data="{'isTriggered': false}"
+            :class="{
+              'animation-slide-right': window.innerWidth >= 1024 ? isTriggered : false,
+              'animation-slide-down': window.innerWidth < 1024 ? isTriggered : false
+            }"
+            class="opacity-0 animation-ease-out animation-duration-1000 animation-delay-1500 transform"
+            x-on:load.window="isTriggered = true"
+          >
+            <img
+              class="h-6 lg:w-6"
+              src="./src/img/email.svg"
+              alt="Logo d'une boîte mail"
+            />
+          </a>
         </aside>
       </section>
-      <section class="bg-black mx-auto px-5" id="graphisme">
+      <section class="relative z-10 bg-black mx-auto px-5 pb-16 lg:pb-32" id="graphisme">
         <div
-          class="relative mx-auto max-w-screen-xl flex flex-col md:flex-row lg:items-start"
+          class="relative mx-auto max-w-screen-xl flex justify-between items-start"
         >
-          <div class="flex border-l-2 pl-5 border-white lg:w-4/12">
+          <div
+            class="relative z-20 flex border-l-2 pl-5 border-white flex-shrink-0"
+          >
             <p class="w-full text-white text-lg pt-16 lg:pt-32 pb-32 lg:pb-16">
               Découvrez mon travail graphique sur<br /><a
                 href="https://www.behance.net/anaisredon"
@@ -227,23 +250,37 @@
               /></a>
             </p>
           </div>
-          <div
-            class="flex items-end justify-end relative pb-32 w-84 md:w-96 lg:w-8/12"
-          >
+          <picture class="lg:absolute z-10 inset-x-0 bottom-0">
+            <source
+              data-srcset="../img/book.png?size=480 480w, ../img/book.png?size=700 700w"
+              type="image/jpg"
+            />
             <img
-              class="opacity-0 animation-ease-out animation-duration-1000 transform absolute right-0 top-0 lg:relative z-10 -mt-32 md:mt-4 lg:mt-0 -mr-12 lg:-mr-32 lg:-mb-16 w-full h-auto"
-              src="../img/book.png"
+              src="../img/book.png?size=64"
+              data-src="../img/book.png?size=480"
+              sizes="100vw"
+              loading="lazy"
+              class="max-w-3xl -ml-64 lg:ml-0 mt-48 lg:mt-0 lg:mr-auto lazyload blur opacity-0 animation-ease-out animation-duration-1000 transform"
               alt="Livre"
               x-data="{'isTriggered': false}"
               :class="{'animation-slide-down': isTriggered}"
               @scroll.window.passive="isTriggered = isTriggered === false ? window.scrollY + 500 > document.querySelector('#graphisme').getBoundingClientRect().top : isTriggered"
             />
+          </picture>
+          <picture>
+            <source
+              data-srcset="../img/ama.jpg?size=480 480w, ../img/ama.jpg?size=600 600w"
+              type="image/jpg"
+            />
             <img
-              class="relative hidden lg:block"
-              src="../img/ama.jpg"
+              src="../img/ama.jpg?size=64"
+              data-src="../img/ama.jpg?size=480"
+              sizes="100vw"
+              loading="lazy"
+              class="lazyload blur hidden lg:block max-w-xl"
               alt="Affiche AMA"
             />
-          </div>
+          </picture>
         </div>
       </section>
     </main>

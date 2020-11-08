@@ -32,7 +32,6 @@ module.exports = {
     }
   },
   variants: {
-    translate: ({ after }) => after(["important"])
   },
-  plugins: [require("tailwindcss-important")()]
+  plugins: []
 };

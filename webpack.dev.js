@@ -1,7 +1,6 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const HtmlWebpackInlineSVGPlugin = require("html-webpack-inline-svg-plugin");
-const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 module.exports = {
   mode: "development",
@@ -34,24 +33,13 @@ module.exports = {
         ]
       },
       {
-        test: /\.svg$/i,
-        use: [
-          {
-            loader: "file-loader",
-            options: {
-              name: "img/[name].[ext]",
-              emitFile: false
-            }
-          }
-        ]
-      },
-      {
         test: /\.(png|jpe?g|gif|webp)$/i,
         use: [
           {
-            loader: "file-loader",
+            loader: "responsive-loader",
             options: {
-              name: "img/[name].[ext]"
+              adapter: require("responsive-loader/sharp"),
+              name: 'img/[name]-[width].[ext]'
             }
           }
         ]
@@ -62,6 +50,24 @@ module.exports = {
           loader: "html-loader",
           options: {
             attributes: {
+              list: [
+                "...",
+                {
+                  tag: 'img',
+                  attribute: 'data-src',
+                  type: 'src',
+                },
+                {
+                  tag: 'img',
+                  attribute: 'data-srcset',
+                  type: 'srcset',
+                },
+                {
+                  tag: 'source',
+                  attribute: 'data-srcset',
+                  type: 'srcset',
+                },
+              ],
               urlFilter: (attribute, value, resourcePath) => {
                 if (/\.(js|css|svg)$/.test(value)) {
                   return false;
@@ -100,14 +106,13 @@ module.exports = {
     ]
   },
   plugins: [
-    new CleanWebpackPlugin({ cleanStaleWebpackAssets: false }),
     new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, "./src/templates/index.html"),
+      template: "./src/templates/index.html",
       filename: "index.html"
     }),
     new HtmlWebpackInlineSVGPlugin({
       runPreEmit: true,
       inlineAll: true
-    }),
+    })
   ]
 };
