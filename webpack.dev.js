@@ -2,7 +2,6 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const HtmlWebpackInlineSVGPlugin = require("html-webpack-inline-svg-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
-const ImageMinimizerPlugin = require("image-minimizer-webpack-plugin");
 
 module.exports = {
   mode: "development",
@@ -18,7 +17,7 @@ module.exports = {
   },
   output: {
     publicPath: "/",
-    filename: "[name].[contenthash].js",
+    filename: "[name].js",
     path: path.resolve(__dirname, "dist")
   },
   module: {
@@ -40,7 +39,7 @@ module.exports = {
           {
             loader: "file-loader",
             options: {
-              name: "img/[name].[hash].[ext]",
+              name: "img/[name].[ext]",
               emitFile: false
             }
           }
@@ -52,7 +51,7 @@ module.exports = {
           {
             loader: "file-loader",
             options: {
-              name: "img/[name].[hash].[ext]"
+              name: "img/[name].[ext]"
             }
           }
         ]
@@ -110,24 +109,5 @@ module.exports = {
       runPreEmit: true,
       inlineAll: true
     }),
-    new ImageMinimizerPlugin({
-      minimizerOptions: {
-        plugins: [
-          ["gifsicle", { interlaced: true }],
-          ["jpegtran", { progressive: true }],
-          ["optipng", { optimizationLevel: 5 }],
-          [
-            "svgo",
-            {
-              plugins: [
-                {
-                  removeViewBox: false
-                }
-              ]
-            }
-          ]
-        ]
-      }
-    })
   ]
 };

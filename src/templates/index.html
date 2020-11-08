@@ -2,15 +2,61 @@
 <html lang="fr">
   <head>
     <meta charset="utf-8" />
-    <title>Anaïs Redon</title>
+    <title>Anaïs Redon – Graphisme & Illustration</title>
+    <!-- Primary Meta Tags -->
+    <meta name="title" content="Meta Tags — Preview, Edit and Generate" />
+    <meta
+      name="description"
+      content="With Meta Tags you can edit and experiment with your content then preview how your webpage will look on Google, Facebook, Twitter and more!"
+    />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://metatags.io/" />
+    <meta
+      property="og:title"
+      content="Meta Tags — Preview, Edit and Generate"
+    />
+    <meta
+      property="og:description"
+      content="With Meta Tags you can edit and experiment with your content then preview how your webpage will look on Google, Facebook, Twitter and more!"
+    />
+    <meta
+      property="og:image"
+      content="https://metatags.io/assets/meta-tags-16a33a6a8531e519cc0936fbba0ad904e52d35f34a46c97a2c9f6f7dd7d336f2.png"
+    />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://metatags.io/" />
+    <meta
+      property="twitter:title"
+      content="Meta Tags — Preview, Edit and Generate"
+    />
+    <meta
+      property="twitter:description"
+      content="With Meta Tags you can edit and experiment with your content then preview how your webpage will look on Google, Facebook, Twitter and more!"
+    />
+    <meta
+      property="twitter:image"
+      content="https://metatags.io/assets/meta-tags-16a33a6a8531e519cc0936fbba0ad904e52d35f34a46c97a2c9f6f7dd7d336f2.png"
+    />
   </head>
   <body class="font-body antialiased">
     <header
       class="max-w-screen-xl mx-auto py-5 text-xl lg:text-3xl leading-tight -mb-12 lg:mb-0 px-5 xl:px-0"
     >
-      <span class="font-bold">Graphisme</span><br />& Illustration
+      <div
+        x-data="{'isTriggered': false}"
+        x-cloak
+        :class="{'animation-slide-down': isTriggered}"
+        class="opacity-0 animation-ease-out animation-duration-1000"
+        x-on:load.window="isTriggered = true"
+      >
+        <span class="font-bold">Graphisme</span><br />& Illustration
+      </div>
     </header>
-    <main class="relative">
+    <main class="relative overflow-hidden">
       <section class="max-w-screen-xl mx-auto z-0 flex flex-col lg:flex-row">
         <div>
           <div
@@ -22,18 +68,28 @@
               src="../img/background.jpg"
               alt="Photo de fond"
             />
-            <div class="z-10 flex flex-col lg:flex-row px-5 lg:pl-0 lg:pr-16 py-16">
+            <div
+              class="z-10 flex flex-col lg:flex-row px-5 lg:pl-0 lg:pr-16 py-16"
+            >
               <div
                 class="absolute right-0 top-0 mt-3 lg:mt-0 lg:relative lg:-ml-24 xl:-ml-32 -mr-40 xs:-mr-24 lg:mr-0"
               >
                 <img
                   src="../img/portrait.png"
-                  class="z-0 w-64 lg:w-full lg:ml-0 h-auto"
                   alt="Illustration d'un portrait"
+                  class="opacity-0 z-0 w-64 md:w-72 lg:w-full lg:ml-0 h-auto animation-ease-out animation-duration-1000 transform animation-delay-1500"
+                  x-data="{'isTriggered': false}"
+                  :class="{'animation-slide-down': isTriggered}"
+                  x-on:load.window="isTriggered = true"
                 />
               </div>
-              <div class="z-10 flex flex-col justify-start items-end">
-                <div class="max-w-lg lg:text-right">
+              <div class="z-10 flex flex-col justify-start lg:items-end">
+                <div
+                  class="opacity-0 animation-ease-out animation-duration-1000 transform  lg:max-w-lg lg:text-right"
+                  x-data="{'isTriggered': false}"
+                  :class="{'animation-slide-down': isTriggered}"
+                  x-on:load.window="isTriggered = true"
+                >
                   <h1
                     class="font-title text-5xl lg:text-8xl leading-none tracking-widest-xl lg:-mr-6"
                   >
@@ -67,7 +123,9 @@
                   </p>
                 </div>
 
-                <p class="order-2 lg:order-3 w-full lg:max-w-xs mt-8 lg:text-lg">
+                <p
+                  class="order-2 lg:order-3 w-full lg:max-w-xs mt-8 lg:text-lg"
+                >
                   Découvrez mon travail illustratif sur<br /><a
                     href="https://www.instagram.com/_anaitha/"
                     target="_blank"
@@ -91,6 +149,10 @@
             href="https://www.instagram.com/_anaitha/"
             target="_blank"
             rel="nofollow noreferrer noopener"
+            x-data="{'isTriggered': false}"
+            :class="{'animation-slide-right': isTriggered}"
+            class="opacity-0 animation-ease-out animation-duration-1000 transform"
+            x-on:load.window="isTriggered = true"
           >
             <img
               class="h-6 lg:w-6"
@@ -102,6 +164,10 @@
             href="https://www.linkedin.com/in/anaisredon/"
             target="_blank"
             rel="nofollow noreferrer noopener"
+            x-data="{'isTriggered': false}"
+            :class="{'animation-slide-right': isTriggered}"
+            class="opacity-0 animation-ease-out animation-duration-1000 animation-delay-500 transform"
+            x-on:load.window="isTriggered = true"
           >
             <img
               class="h-6 lg:w-6"
@@ -113,6 +179,10 @@
             href="mailto:hello@anaisredon.com"
             target="_blank"
             rel="nofollow noreferrer noopener"
+            x-data="{'isTriggered': false}"
+            :class="{'animation-slide-right': isTriggered}"
+            class="opacity-0 animation-ease-out animation-duration-1000 animation-delay-1000 transform"
+            x-on:load.window="isTriggered = true"
           >
             <img
               class="h-6 lg:w-6"
@@ -124,6 +194,11 @@
             href="https://www.behance.net/anaisredon"
             target="_blank"
             rel="nofollow noreferrer noopener"
+            x-cloak
+            x-data="{'isTriggered': false}"
+            :class="{'animation-slide-right': isTriggered}"
+            class="opacity-0 animation-ease-out animation-duration-1000 animation-delay-1500 transform"
+            x-on:load.window="isTriggered = true"
           >
             <img
               class="h-6 lg:w-6"
@@ -133,8 +208,10 @@
           </a>
         </aside>
       </section>
-      <section class="bg-black mx-auto px-5">
-        <div class="relative mx-auto max-w-screen-xl flex flex-col md:flex-row items-center lg:items-start">
+      <section class="bg-black mx-auto px-5" id="graphisme">
+        <div
+          class="relative mx-auto max-w-screen-xl flex flex-col md:flex-row lg:items-start"
+        >
           <div class="flex border-l-2 pl-5 border-white lg:w-4/12">
             <p class="w-full text-white text-lg pt-16 lg:pt-32 pb-32 lg:pb-16">
               Découvrez mon travail graphique sur<br /><a
@@ -150,13 +227,22 @@
               /></a>
             </p>
           </div>
-          <div class="flex items-end justify-end relative pb-32 w-84 lg:w-8/12">
+          <div
+            class="flex items-end justify-end relative pb-32 w-84 md:w-96 lg:w-8/12"
+          >
             <img
-              class="absolute right-0 top-0 lg:relative z-10 -mt-32 lg:-mt-0 -mr-12 lg:-mr-32 lg:-mb-16 w-full h-auto"
+              class="opacity-0 animation-ease-out animation-duration-1000 transform absolute right-0 top-0 lg:relative z-10 -mt-32 md:mt-4 lg:mt-0 -mr-12 lg:-mr-32 lg:-mb-16 w-full h-auto"
               src="../img/book.png"
               alt="Livre"
+              x-data="{'isTriggered': false}"
+              :class="{'animation-slide-down': isTriggered}"
+              @scroll.window.passive="isTriggered = isTriggered === false ? window.scrollY + 500 > document.querySelector('#graphisme').getBoundingClientRect().top : isTriggered"
             />
-            <img class="relative hidden md:block" src="../img/ama.jpg" alt="Affiche AMA" />
+            <img
+              class="relative hidden lg:block"
+              src="../img/ama.jpg"
+              alt="Affiche AMA"
+            />
           </div>
         </div>
       </section>
@@ -165,7 +251,6 @@
       <p class="text-white font-body max-w-screen-xl mx-auto">
         Anaïs Redon – 2020
       </p>
-      <script src="app.js"></script>
     </footer>
   </body>
 </html>
