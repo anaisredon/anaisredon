@@ -1,0 +1,95 @@
+.action {
+  @apply transition rounded-lg inline-flex items-center;
+
+  &,
+  & svg {
+    @apply ease-in-out duration-300;
+  }
+
+  & svg {
+    @apply transition-transform ml-1;
+  }
+
+  &:focus {
+    @apply shadow-outline outline-none;
+  }
+
+  &.active,
+  &:active {
+    @apply underline;
+  }
+
+  &:hover {
+    & svg {
+      @apply transform translate-x-1;
+    }
+  }
+}
+
+.animation-duration-1000 {
+  animation-duration: 1000ms;
+}
+
+.animation-delay-500 {
+  animation-delay: 500ms;
+}
+
+.animation-delay-1000 {
+  animation-delay: 1000ms;
+}
+
+.animation-delay-1500 {
+  animation-delay: 1500ms;
+}
+
+.animation-delay-2000 {
+  animation-delay: 2000ms;
+}
+
+.animation-ease-out {
+  animation-timing-function: ease-out;
+}
+
+.animation-slide-down {
+  animation-fill-mode: forwards;
+  animation-name: slideDown;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-16px);
+  }
+
+  to {
+    opacity: 100%;
+    transform: translateY(0px);
+  }
+}
+
+.animation-slide-right {
+  animation-fill-mode: forwards;
+  animation-name: slideRight;
+}
+
+@keyframes slideRight {
+  from {
+    opacity: 0;
+    transform: translateX(-16px);
+  }
+
+  to {
+    opacity: 100%;
+    transform: translateX(0px);
+    visibility: visible;
+  }
+}
+
+.blur {
+  filter: blur(5px);
+  transition: filter 400ms;
+}
+
+.blur.lazyloaded {
+  filter: blur(0);
+}
