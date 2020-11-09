@@ -39,7 +39,7 @@ module.exports = {
             loader: "responsive-loader",
             options: {
               adapter: require("responsive-loader/sharp"),
-              name: 'img/[name]-[width].[ext]'
+              name: "img/[name]-[width].[ext]"
             }
           }
         ]
@@ -53,20 +53,34 @@ module.exports = {
               list: [
                 "...",
                 {
-                  tag: 'img',
-                  attribute: 'data-src',
-                  type: 'src',
+                  tag: "meta",
+                  attribute: "content",
+                  type: "src",
+                  filter: (_tag, _attribute, attributes, _resourcePath) => {
+                    if (
+                      attributes.property === "og:image" ||
+                      attributes.property === "twitter:image"
+                    ) {
+                      return true;
+                    }
+                    return false;
+                  }
                 },
                 {
-                  tag: 'img',
-                  attribute: 'data-srcset',
-                  type: 'srcset',
+                  tag: "img",
+                  attribute: "data-src",
+                  type: "src"
                 },
                 {
-                  tag: 'source',
-                  attribute: 'data-srcset',
-                  type: 'srcset',
+                  tag: "img",
+                  attribute: "data-srcset",
+                  type: "srcset"
                 },
+                {
+                  tag: "source",
+                  attribute: "data-srcset",
+                  type: "srcset"
+                }
               ],
               urlFilter: (attribute, value, resourcePath) => {
                 if (/\.(js|css|svg)$/.test(value)) {
