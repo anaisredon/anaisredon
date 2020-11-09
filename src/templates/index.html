@@ -41,7 +41,7 @@
         x-cloak
         :class="{'animation-slide-down': isTriggered}"
         class="opacity-0 animation-ease-out animation-duration-1000"
-        x-on:load.window="isTriggered = true"
+        x-init="isTriggered = true"
       >
         <span class="font-bold">Graphisme</span><br />& Illustration
       </div>
@@ -87,7 +87,7 @@
                   class="lazyload blur opacity-0 animation-ease-out animation-duration-1000 transform animation-delay-1500"
                   x-data="{'isTriggered': false}"
                   :class="{'animation-slide-down': isTriggered}"
-                  x-on:load.window="isTriggered = true"
+                  x-init="isTriggered = true"
                 />
               </picture>
               <div
@@ -97,7 +97,7 @@
                   class="opacity-0 animation-ease-out animation-duration-1000 transform  lg:max-w-lg lg:text-right"
                   x-data="{'isTriggered': false}"
                   :class="{'animation-slide-down': isTriggered}"
-                  x-on:load.window="isTriggered = true"
+                  x-init="isTriggered = true"
                 >
                   <h1
                     class="max-w-sm md:max-w-none font-title text-5xl md:text-8xl leading-none tracking-widest-xl lg:-mr-6"
@@ -164,7 +164,7 @@
               'animation-slide-down': window.innerWidth < 1024 ? isTriggered : false
             }"
             class="opacity-0 animation-ease-out animation-duration-1000 transform"
-            x-on:load.window="isTriggered = true"
+            x-init="isTriggered = true"
           >
             <img
               class="h-6 lg:w-6"
@@ -182,7 +182,7 @@
               'animation-slide-down': window.innerWidth < 1024 ? isTriggered : false
             }"
             class="opacity-0 animation-ease-out animation-duration-1000 animation-delay-500 transform"
-            x-on:load.window="isTriggered = true"
+            x-init="isTriggered = true"
           >
             <img
               class="h-6 lg:w-6"
@@ -201,7 +201,7 @@
               'animation-slide-down': window.innerWidth < 1024 ? isTriggered : false
             }"
             class="opacity-0 animation-ease-out animation-duration-1000 animation-delay-1000 transform"
-            x-on:load.window="isTriggered = true"
+            x-init="isTriggered = true"
           >
             <img
               class="h-6 lg:w-6"
@@ -219,7 +219,7 @@
               'animation-slide-down': window.innerWidth < 1024 ? isTriggered : false
             }"
             class="opacity-0 animation-ease-out animation-duration-1000 animation-delay-1500 transform"
-            x-on:load.window="isTriggered = true"
+            x-init="isTriggered = true"
           >
             <img
               class="h-6 lg:w-6"
