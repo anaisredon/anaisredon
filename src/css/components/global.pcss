@@ -62,7 +62,7 @@
   }
 
   to {
-    opacity: 100%;
+    opacity: 1;
     transform: translateY(0px);
   }
 }
@@ -79,9 +79,8 @@
   }
 
   to {
-    opacity: 100%;
+    opacity: 1;
     transform: translateX(0px);
-    visibility: visible;
   }
 }
 
@@ -90,6 +89,7 @@
   transition: filter 400ms;
 }
 
+/* purgecss ignore */
 .blur.lazyloaded {
   filter: blur(0);
 }
