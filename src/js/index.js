@@ -1,4 +1,3 @@
-import "alpinejs";
 import styles from "../css/app.pcss";
 import PtSansRegular from "../fonts/pt-sans-regular.woff2";
 import AvianoBold from "../fonts/aviano-bold.woff2";
@@ -12,6 +11,8 @@ const main = async () => {
     "lazysizes/plugins/native-loading/ls.native-loading"
   );
   LazySizes.init();
+
+  await import("alpinejs");
 };
 
 main().then(() => {});
