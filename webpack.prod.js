@@ -55,7 +55,7 @@ module.exports = {
   devtool: "source-map",
   output: {
     filename: path.join("./js", "[name].[chunkhash].js"),
-    publicPath: "https://anaisredon.com/",
+    publicPath: "/dist/",
     path: path.resolve(__dirname, "dist")
   },
   module: {
@@ -91,6 +91,20 @@ module.exports = {
             attributes: {
               list: [
                 "...",
+                {
+                  tag: "meta",
+                  attribute: "content",
+                  type: "src",
+                  filter: (_tag, _attribute, attributes, _resourcePath) => {
+                    if (
+                      attributes.property === "og:image" ||
+                      attributes.property === "twitter:image"
+                    ) {
+                      return true;
+                    }
+                    return false;
+                  }
+                },
                 {
                   tag: "img",
                   attribute: "data-src",
@@ -183,8 +197,8 @@ module.exports = {
     new FaviconsWebpackPlugin({
       logo: "./src/img/favicon.svg",
       cache: true,
-      outputPath: "/dist",
-      prefix: "img/",
+      outputPath: "/img",
+      prefix: "/dist/img/",
       inject: true
     }),
     new ImageMinimizerPlugin({
