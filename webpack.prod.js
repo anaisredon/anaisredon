@@ -165,12 +165,10 @@ module.exports = {
   },
   plugins: [
     new CleanWebpackPlugin({
-      cleanOnceBeforeBuildPatterns: ["**/*"],
       verbose: true,
-      dry: false
     }),
     new MiniCssExtractPlugin({
-      filename: path.join("./css", "[name].[chunkhash].css")
+      filename: path.join("./css", "[name].[hash].css")
     }),
     new PurgecssPlugin(configurePurgeCss()),
     new CompressionPlugin({
