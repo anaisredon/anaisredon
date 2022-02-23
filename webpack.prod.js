@@ -1,7 +1,6 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const PurgecssPlugin = require("purgecss-webpack-plugin");
-const WhitelisterPlugin = require("purgecss-whitelister");
 const HtmlWebpackInlineSVGPlugin = require("html-webpack-inline-svg-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
@@ -9,7 +8,7 @@ const ImageMinimizerPlugin = require("image-minimizer-webpack-plugin");
 const CompressionPlugin = require("compression-webpack-plugin");
 const zlib = require("zlib");
 const FaviconsWebpackPlugin = require("favicons-webpack-plugin");
-const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
+const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 
 const glob = require("glob-all");
 
@@ -18,8 +17,7 @@ function TailwindExtractor(content) {
   const broadMatches = content.match(/[^<>"'`\s]*[^<>"'`\s:]/g) || [];
 
   // Capture classes within other delimiters like .block(class="w-1/2") in Pug
-  const innerMatches =
-    content.match(/[^<>"'`\s.(){}]*[^<>"'`\s.(){}:]/g) || [];
+  const innerMatches = content.match(/[^<>"'`\s.(){}]*[^<>"'`\s.(){}:]/g) || [];
 
   return broadMatches.concat(innerMatches);
 }
@@ -29,20 +27,19 @@ const configurePurgeCss = () => {
   // Configure whitelist paths
   for (const [key, value] of Object.entries([
     "./src/templates/**/*.{twig,html}",
-    "./src/js/**/*.js"
+    "./src/js/**/*.js",
   ])) {
     paths.push(path.join(__dirname, value));
   }
 
   return {
     paths: glob.sync(paths),
-    whitelist: WhitelisterPlugin(["./src/css/components/*.css"]),
     extractors: [
       {
         extractor: TailwindExtractor,
-        extensions: ["html", "js"]
-      }
-    ]
+        extensions: ["html", "js"],
+      },
+    ],
   };
 };
 
@@ -50,13 +47,19 @@ module.exports = {
   stats: "normal",
   mode: "production",
   entry: {
-    app: "./src/js/index.js"
+    app: [
+      "./src/js/index.js",
+      "./src/css/app.pcss",
+      "./src/fonts/montserrat-300.woff2",
+      "./src/fonts/montserrat-600.woff2",
+      "./src/fonts/tangerine.woff2",
+    ],
   },
   devtool: "source-map",
   output: {
     filename: path.join("./js", "[name].[chunkhash].js"),
     publicPath: "/dist/",
-    path: path.resolve(__dirname, "dist")
+    path: path.resolve(__dirname, "dist"),
   },
   module: {
     rules: [
@@ -66,10 +69,10 @@ module.exports = {
           {
             loader: "file-loader",
             options: {
-              name: "fonts/[name].[ext]"
-            }
-          }
-        ]
+              name: "fonts/[name].[ext]",
+            },
+          },
+        ],
       },
       {
         test: /\.(png|jpe?g|gif|webp)$/i,
@@ -78,10 +81,10 @@ module.exports = {
             loader: "responsive-loader",
             options: {
               adapter: require("responsive-loader/sharp"),
-              name: "img/[name]-[width].[hash].[ext]"
-            }
-          }
-        ]
+              name: "img/[name]-[width].[hash].[ext]",
+            },
+          },
+        ],
       },
       {
         test: /\.(html)$/i,
@@ -103,23 +106,23 @@ module.exports = {
                       return true;
                     }
                     return false;
-                  }
+                  },
                 },
                 {
                   tag: "img",
                   attribute: "data-src",
-                  type: "src"
+                  type: "src",
                 },
                 {
                   tag: "img",
                   attribute: "data-srcset",
-                  type: "srcset"
+                  type: "srcset",
                 },
                 {
                   tag: "source",
                   attribute: "data-srcset",
-                  type: "srcset"
-                }
+                  type: "srcset",
+                },
               ],
               urlFilter: (attribute, value, resourcePath) => {
                 if (/\.(js|css|svg)$/.test(value)) {
@@ -127,10 +130,10 @@ module.exports = {
                 }
 
                 return true;
-              }
-            }
-          }
-        }
+              },
+            },
+          },
+        },
       },
       {
         test: /\.(pcss|css)$/,
@@ -140,35 +143,33 @@ module.exports = {
             loader: "css-loader",
             options: {
               importLoaders: 2,
-              sourceMap: true
-            }
+              sourceMap: true,
+            },
           },
           {
-            loader: "resolve-url-loader"
+            loader: "resolve-url-loader",
           },
           {
             loader: "postcss-loader",
             options: {
-              sourceMap: true
-            }
-          }
-        ]
-      }
-    ]
+              sourceMap: true,
+            },
+          },
+        ],
+      },
+    ],
   },
   optimization: {
     minimize: true,
-    minimizer: [
-      `...`,
-      new CssMinimizerPlugin(),
-    ],
+    minimizer: [`...`, new CssMinimizerPlugin()],
   },
   plugins: [
     new CleanWebpackPlugin({
       verbose: true,
+      dry: false,
     }),
     new MiniCssExtractPlugin({
-      filename: path.join("./css", "[name].[hash].css")
+      filename: path.join("./css", "[name].[hash].css"),
     }),
     new PurgecssPlugin(configurePurgeCss()),
     new CompressionPlugin({
@@ -177,27 +178,27 @@ module.exports = {
       test: /\.(js|css|html|svg)$/,
       compressionOptions: {
         params: {
-          [zlib.constants.BROTLI_PARAM_QUALITY]: 4
-        }
+          [zlib.constants.BROTLI_PARAM_QUALITY]: 4,
+        },
       },
       threshold: 10240,
       minRatio: 0.8,
-      deleteOriginalAssets: false
+      deleteOriginalAssets: false,
     }),
     new HtmlWebpackPlugin({
       template: "./src/templates/index.html",
-      filename: "../index.html"
+      filename: "../index.html",
     }),
     new HtmlWebpackInlineSVGPlugin({
       runPreEmit: true,
-      inlineAll: true
+      inlineAll: true,
     }),
     new FaviconsWebpackPlugin({
       logo: "./src/img/favicon.svg",
       cache: true,
       outputPath: "/img",
       prefix: "/dist/img/",
-      inject: true
+      inject: true,
     }),
     new ImageMinimizerPlugin({
       severityError: "errors",
@@ -211,13 +212,13 @@ module.exports = {
             {
               plugins: [
                 {
-                  removeViewBox: false
-                }
-              ]
-            }
-          ]
-        ]
-      }
-    })
-  ]
+                  removeViewBox: false,
+                },
+              ],
+            },
+          ],
+        ],
+      },
+    }),
+  ],
 };

@@ -5,32 +5,34 @@ const HtmlWebpackInlineSVGPlugin = require("html-webpack-inline-svg-plugin");
 module.exports = {
   mode: "development",
   entry: {
-    app: "./src/js/index.js"
+    app: [
+      "./src/js/index.js",
+      "./src/css/app.pcss",
+      "./src/fonts/montserrat-300.woff2",
+      "./src/fonts/montserrat-600.woff2",
+      "./src/fonts/tangerine.woff2",
+    ],
   },
   devtool: "inline-source-map",
   devServer: {
     contentBase: path.resolve(__dirname, "./src/templates/"),
     port: "8081",
     watchContentBase: true,
-    hot: true
+    hot: true,
   },
   output: {
     publicPath: "/",
     filename: "[name].js",
-    path: path.resolve(__dirname, "dist")
+    path: path.resolve(__dirname, "dist"),
   },
   module: {
     rules: [
       {
         test: /\.(ttf|eot|woff2?)$/i,
-        use: [
-          {
-            loader: "file-loader",
-            options: {
-              name: "fonts/[name].[ext]"
-            }
-          }
-        ]
+        type: "asset/resource",
+        generator: {
+          filename: "fonts/[name][ext]",
+        },
       },
       {
         test: /\.(png|jpe?g|gif|webp)$/i,
@@ -39,10 +41,10 @@ module.exports = {
             loader: "responsive-loader",
             options: {
               adapter: require("responsive-loader/sharp"),
-              name: "img/[name]-[width].[ext]"
-            }
-          }
-        ]
+              name: "img/[name]-[width].[ext]",
+            },
+          },
+        ],
       },
       {
         test: /\.(html)$/i,
@@ -51,7 +53,6 @@ module.exports = {
           options: {
             attributes: {
               list: [
-                "...",
                 {
                   tag: "meta",
                   attribute: "content",
@@ -64,23 +65,23 @@ module.exports = {
                       return true;
                     }
                     return false;
-                  }
+                  },
                 },
                 {
                   tag: "img",
                   attribute: "data-src",
-                  type: "src"
+                  type: "src",
                 },
                 {
                   tag: "img",
                   attribute: "data-srcset",
-                  type: "srcset"
+                  type: "srcset",
                 },
                 {
                   tag: "source",
                   attribute: "data-srcset",
-                  type: "srcset"
-                }
+                  type: "srcset",
+                },
               ],
               urlFilter: (attribute, value, resourcePath) => {
                 if (/\.(js|css|svg)$/.test(value)) {
@@ -88,45 +89,45 @@ module.exports = {
                 }
 
                 return true;
-              }
-            }
-          }
-        }
+              },
+            },
+          },
+        },
       },
       {
         test: /\.(pcss|css)$/i,
         use: [
           {
-            loader: "style-loader"
+            loader: "style-loader",
           },
           {
             loader: "css-loader",
             options: {
               importLoaders: 2,
-              sourceMap: true
-            }
+              sourceMap: true,
+            },
           },
           {
-            loader: "resolve-url-loader"
+            loader: "resolve-url-loader",
           },
           {
             loader: "postcss-loader",
             options: {
-              sourceMap: true
-            }
-          }
-        ]
-      }
-    ]
+              sourceMap: true,
+            },
+          },
+        ],
+      },
+    ],
   },
   plugins: [
     new HtmlWebpackPlugin({
       template: "./src/templates/index.html",
-      filename: "index.html"
+      filename: "index.html",
     }),
     new HtmlWebpackInlineSVGPlugin({
       runPreEmit: true,
-      inlineAll: true
-    })
-  ]
+      inlineAll: true,
+    }),
+  ],
 };

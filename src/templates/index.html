@@ -32,260 +32,293 @@
     />
     <meta property="twitter:image" content="../img/cover.jpg?size=1920" />
   </head>
-  <body class="font-body antialiased">
-    <header
-      class="max-w-screen-xl mx-auto py-5 text-xl lg:text-3xl leading-tight -mb-12 lg:mb-0 px-5 lg:pl-12 lg:pr-0"
-    >
+  <body class="bg-light font-body text-dark antialiased">
+    <header class="mx-auto grid max-w-screen-xl grid-cols-12 pt-7">
       <div
         x-data="{'isTriggered': false}"
         x-cloak
         :class="{'animation-slide-down': isTriggered}"
-        class="opacity-0 animation-ease-out animation-duration-1000"
+        class="animation-ease-out animation-duration-1000 col-span-7 opacity-0"
         x-init="isTriggered = true"
       >
-        <span class="font-bold">Graphisme</span><br />& Illustration
+        <span class="font-title text-xl text-primary">a</span
+        ><span class="ml-4 text-xs uppercase tracking-widest text-secondary"
+          >Direction artistique</span
+        >
       </div>
+      <div class="col-span-4 col-start-8 mt-auto h-3 w-full bg-dark"></div>
     </header>
 
-    <main class="overflow-hidden">
-      <section class="max-w-screen-xl mx-auto flex flex-col lg:flex-row">
-        <div class="w-full lg:pl-12">
+    <main>
+      <section class="mx-auto flex max-w-screen-xl">
+        <div class="relative grid grid-cols-12">
           <div
-            class="bg-black h-2 lg:h-8 w-40 lg:w-96 ml-auto box-content pl-5"
+            class="
+              absolute
+              z-[-1]
+              col-span-8 col-start-4
+              h-full
+              w-full
+              bg-secondary
+            "
           ></div>
-          <div class="flex relative">
-            <picture class="z-0 absolute w-full">
+          <div class="col-span-6 py-20">
+            <h2 class="text-3xl">
+              <span class="font-bold">Graphisme</span><br /><span
+                class="text-secondary"
+                >& Illustrations</span
+              >
+            </h2>
+            <picture>
               <source
-                data-srcset="../img/background.jpg?size=480 480w, ../img/background.jpg?size=720 720w, ../img/background.jpg?size=1280 1280w"
+                data-srcset="../img/portrait.png?size=480 480w, ../img/portrait.png?size=720 720w, ../img/portrait.png?size=800 800w"
                 type="image/jpg"
               />
               <img
-                loading="lazy"
-                class="lazyload blur object-cover object-right-top h-full w-full opacity-50"
-                src="../img/background.jpg?size=64"
-                data-src="../img/background.jpg?size=480"
-                alt="Photo de fond"
+                src="../img/portrait.png?size=64"
+                data-src="../img/portrait.png?size=480"
                 sizes="100vw"
+                loading="lazy"
+                alt="Illustration d'un portrait"
+                class="
+                  lazyload
+                  animation-ease-out
+                  animation-duration-1000
+                  animation-delay-1500
+                  transform
+                  opacity-0
+                  blur
+                "
+                x-data="{'isTriggered': false}"
+                :class="{'animation-slide-down': isTriggered}"
+                x-init="isTriggered = true"
               />
             </picture>
+          </div>
+          <div class="col-span-5 flex flex-col py-20">
             <div
-              class="w-full z-10 flex flex-col md:flex-row justify-between px-5 lg:pl-0 lg:pr-16 py-16"
+              class="animation-ease-out animation-duration-1000"
+              x-data="{'isTriggered': false}"
+              :class="{'animation-slide-down': isTriggered}"
+              x-init="isTriggered = true"
             >
-              <picture
-                class="absolute top-0 right-0 -mr-32 xs:-mr-24 sm:-mr-12 mt-6 lg:mt-0 md:relative z-0 md:pr-6 lg:-ml-12 xl:-ml-16 mb-8 md:mb-0 w-64 xs:w-72 sm:w-96 md:w-7/12 lg:w-8/12"
+              <h1 class="grid grid-cols-5 font-title text-[140px] leading-none">
+                <span class="col-span-5">Anaïs</span
+                ><span class="col-span-4 col-start-2 -ml-3">Redon</span>
+              </h1>
+              <h2
+                class="
+                  absolute
+                  top-0
+                  right-0
+                  mt-[87px]
+                  mr-10
+                  font-semibold
+                  uppercase
+                "
               >
-                <source
-                  data-srcset="../img/portrait.png?size=480 480w, ../img/portrait.png?size=720 720w, ../img/portrait.png?size=800 800w"
-                  type="image/jpg"
-                />
-                <img
-                  src="../img/portrait.png?size=64"
-                  data-src="../img/portrait.png?size=480"
-                  sizes="100vw"
-                  loading="lazy"
-                  alt="Illustration d'un portrait"
-                  class="lazyload blur opacity-0 animation-ease-out animation-duration-1000 transform animation-delay-1500"
-                  x-data="{'isTriggered': false}"
-                  :class="{'animation-slide-down': isTriggered}"
-                  x-init="isTriggered = true"
-                />
-              </picture>
-              <div
-                class="md:w-5/12 lg:w-4/12 mt-12 md:mt-0 z-10 flex flex-col justify-start lg:items-end"
-              >
-                <div
-                  class="opacity-0 animation-ease-out animation-duration-1000 transform  lg:max-w-lg lg:text-right"
-                  x-data="{'isTriggered': false}"
-                  :class="{'animation-slide-down': isTriggered}"
-                  x-init="isTriggered = true"
-                >
-                  <h1
-                    class="max-w-sm md:max-w-none font-title text-5xl sm:text-6xl lg:text-7xl xl:text-8xl leading-none tracking-widest-xl lg:-mr-6"
-                  >
-                    Anaïs Redon
-                  </h1>
-                  <h2 class="font-subtitle text-2xl sm:text-3xl lg:text-4xl xl:text-5xl uppercase">
-                    Bordeaux
-                  </h2>
-                </div>
+                Bordeaux
+              </h2>
+            </div>
 
-                <div class="order-3 lg:order-2 lg:max-w-xs">
-                  <p class="mt-8 lg:mt-12">
+            <div class="grid h-full grid-cols-5">
+              <div class="col-span-3 col-start-2 flex flex-col justify-between">
+                <div>
+                  <p class="">
                     Née au Japon d’une famille purement scientifique, ma passion
-                    à rompu avec les codes familiaux. Depuis que je suis en
+                    a rompu avec les codes familiaux. Depuis que je suis en
                     capacité de tenir un crayon, je me nourris de cette passion.
-                    J’ai commencé à suivre des cours de dessin dès mon plus
-                    jeune âge, en changeant de thématique assez régulièrement.
                     De l’atelier créatif, au cours de peinture, en passant par
                     le dessin d’analyse ou le manga, la curiosité m’a poussé à
                     découvrir un maximum de technique et de média afin de mieux
-                    affiner mon style. Ayant cette envie de dessin et de
-                    création, il était donc évident que j’allais m’orienter dans
-                    ce domaine professionnel.
+                    affiner mon style.
                   </p>
 
                   <p class="mt-6">
-                    Aujourd’hui étudiante en master à l’ECV Bordeaux, je suis
-                    fortement inspirée par le domaine du luxe, et j'aime
-                    orienter mon travail dans cet esprit, à la recherche de
-                    finesse et de précision.
+                    C’est par mon apprentissage et mes expériences que ma
+                    sensibilité au luxe s’est précisée, me permettant d‘orienter
+                    mes créations vers cet univers, à la recherche de finesse et
+                    de précision.
                   </p>
                 </div>
 
-                <p
-                  class="order-2 lg:order-3 w-full lg:max-w-xs mt-32 xs:mt-40 md:mt-0 lg:mt-8 lg:text-lg"
-                >
-                  Découvrez mon travail illustratif sur<br /><a
+                <p class="">
+                  Découvrez mon projet Anaitha sur<br /><a
                     href="https://www.instagram.com/_anaitha/"
                     target="_blank"
                     rel="nofollow noopener noreferrer"
-                    class="font-bold uppercase action text-2xl"
+                    class="
+                      action
+                      mt-auto
+                      font-bold
+                      uppercase
+                      tracking-widest
+                      text-primary
+                    "
                     >Instagram
                     <img
                       src="./src/img/arrow.svg"
-                      class="w-5 fill-current"
+                      class="-mt-px w-3 fill-current"
                       alt="Icône d'une flèche"
                   /></a>
                 </p>
               </div>
             </div>
           </div>
-        </div>
-        <aside
-          class="flex lg:flex-col order-first lg:order-last justify-end lg:justify-start items-center space-x-4 lg:space-x-0 lg:space-y-4 px-5 lg:px-3 py-2 lg:py-0"
-        >
-          <a
-            href="https://www.instagram.com/_anaitha/"
-            target="_blank"
-            rel="nofollow noreferrer noopener"
-            x-data="{'isTriggered': false}"
-            :class="{
+          <aside class="order-first col-span-1 flex lg:order-last">
+            <div
+              class="
+                flex
+                items-center
+                justify-end
+                space-x-4 space-x-4
+                px-5
+                py-2
+                lg:flex-col
+                lg:flex-col
+                lg:justify-start
+                lg:space-x-0
+                lg:space-y-4
+                lg:space-x-0
+                lg:space-y-4
+                lg:px-3
+                lg:py-0
+              "
+            >
+              <a
+                href="https://www.instagram.com/_anaitha/"
+                target="_blank"
+                rel="nofollow noreferrer noopener"
+                x-data="{'isTriggered': false}"
+                :class="{
               'animation-slide-right': window.innerWidth >= 1024 ? isTriggered : false,
               'animation-slide-down': window.innerWidth < 1024 ? isTriggered : false
             }"
-            class="opacity-0 animation-ease-out animation-duration-1000 transform"
-            x-init="isTriggered = true"
-          >
-            <img
-              class="h-6 lg:w-6"
-              src="./src/img/instagram.svg"
-              alt="Logo d'Instagram"
-            />
-          </a>
-          <a
-            href="https://www.linkedin.com/in/anaisredon/"
-            target="_blank"
-            rel="nofollow noreferrer noopener"
-            x-data="{'isTriggered': false}"
-            :class="{
+                class="
+                  animation-ease-out animation-duration-1000
+                  border
+                  transform
+                  rounded-full
+                  text-primary
+                  opacity-0
+                  border-primary
+                  p-1
+                "
+                x-init="isTriggered = true"
+              >
+                <img
+                  class="h-5 lg:w-5"
+                  src="./src/img/instagram.svg"
+                  alt="Logo d'Instagram"
+                />
+              </a>
+              <a
+                href="https://www.linkedin.com/in/anaisredon/"
+                target="_blank"
+                rel="nofollow noreferrer noopener"
+                x-data="{'isTriggered': false}"
+                :class="{
               'animation-slide-right': window.innerWidth >= 1024 ? isTriggered : false,
               'animation-slide-down': window.innerWidth < 1024 ? isTriggered : false
             }"
-            class="opacity-0 animation-ease-out animation-duration-1000 animation-delay-500 transform"
-            x-init="isTriggered = true"
-          >
-            <img
-              class="h-6 lg:w-6"
-              src="./src/img/linkedin.svg"
-              alt="Logo de LinkedIn"
-            />
-          </a>
-          <a
-            href="https://www.behance.net/anaisredon"
-            target="_blank"
-            rel="nofollow noreferrer noopener"
-            x-cloak
-            x-data="{'isTriggered': false}"
-            :class="{
-              'animation-slide-right': window.innerWidth >= 1024 ? isTriggered : false,
-              'animation-slide-down': window.innerWidth < 1024 ? isTriggered : false
-            }"
-            class="opacity-0 animation-ease-out animation-duration-1000 animation-delay-1000 transform"
-            x-init="isTriggered = true"
-          >
-            <img
-              class="h-6 lg:w-6"
-              src="./src/img/behance.svg"
-              alt="Logo de Behance"
-            />
-          </a>
-          <a
-            href="mailto:hello@anaisredon.com"
-            target="_blank"
-            rel="nofollow noreferrer noopener"
-            x-data="{'isTriggered': false}"
-            :class="{
-              'animation-slide-right': window.innerWidth >= 1024 ? isTriggered : false,
-              'animation-slide-down': window.innerWidth < 1024 ? isTriggered : false
-            }"
-            class="opacity-0 animation-ease-out animation-duration-1000 animation-delay-1500 transform"
-            x-init="isTriggered = true"
-          >
-            <img
-              class="h-6 lg:w-6"
-              src="./src/img/email.svg"
-              alt="Logo d'une boîte mail"
-            />
-          </a>
-        </aside>
-      </section>
-      <section class="relative z-10 bg-black mx-auto px-5 pb-16 lg:pb-32" id="graphisme">
-        <div
-          class="relative mx-auto max-w-screen-xl flex justify-between items-start"
-        >
-          <div
-            class="relative z-20 flex border-l-2 pl-5 border-white flex-shrink-0"
-          >
-            <p class="w-full text-white text-lg pt-16 lg:pt-32 pb-32 lg:pb-16">
-              Découvrez mon travail graphique sur<br /><a
+                class="
+                  animation-ease-out animation-duration-1000 animation-delay-500
+                  border
+                  transform
+                  rounded-full
+                  text-primary
+                  opacity-0
+                  border-primary
+                  p-1
+                "
+                x-init="isTriggered = true"
+              >
+                <img
+                  class="h-5 lg:w-5"
+                  src="./src/img/linkedin.svg"
+                  alt="Logo de LinkedIn"
+                />
+              </a>
+              <a
                 href="https://www.behance.net/anaisredon"
                 target="_blank"
-                rel="nofollow noopener noreferrer"
-                class="font-bold uppercase action text-2xl"
-                >Behance
+                rel="nofollow noreferrer noopener"
+                x-cloak
+                x-data="{'isTriggered': false}"
+                :class="{
+              'animation-slide-right': window.innerWidth >= 1024 ? isTriggered : false,
+              'animation-slide-down': window.innerWidth < 1024 ? isTriggered : false
+                }"
+                class="
+                  animation-ease-out
+                  animation-duration-1000
+                  animation-delay-1000
+                  border
+                  transform
+                  rounded-full
+                  text-primary
+                  opacity-0
+                  border-primary
+                  p-1
+                "
+                x-init="isTriggered = true"
+              >
                 <img
-                  src="./src/img/arrow.svg"
-                  class="w-5 fill-current"
-                  alt="Icône d'une flèche"
-              /></a>
-            </p>
-          </div>
-          <picture class="lg:absolute z-10 inset-x-0 bottom-0">
-            <source
-              data-srcset="../img/book.png?size=480 480w, ../img/book.png?size=700 700w"
-              type="image/jpg"
-            />
-            <img
-              src="../img/book.png?size=64"
-              data-src="../img/book.png?size=480"
-              sizes="100vw"
-              loading="lazy"
-              class="max-w-3xl -ml-64 lg:ml-0 mt-48 lg:mt-0 lg:mr-auto lazyload blur opacity-0 animation-ease-out animation-duration-1000 transform"
-              alt="Livre"
-              x-data="{'isTriggered': false}"
-              :class="{'animation-slide-down': isTriggered}"
-              @scroll.window.passive="isTriggered = isTriggered === false ? window.scrollY + 500 > document.querySelector('#graphisme').getBoundingClientRect().top : isTriggered"
-            />
-          </picture>
-          <picture>
-            <source
-              data-srcset="../img/ama.jpg?size=480 480w, ../img/ama.jpg?size=600 600w"
-              type="image/jpg"
-            />
-            <img
-              src="../img/ama.jpg?size=64"
-              data-src="../img/ama.jpg?size=480"
-              sizes="100vw"
-              loading="lazy"
-              class="lazyload blur hidden lg:block max-w-xl"
-              alt="Affiche AMA"
-            />
-          </picture>
+                  class="h-5 lg:w-5"
+                  src="./src/img/behance.svg"
+                  alt="Logo de Behance"
+                />
+              </a>
+              <a
+                href="mailto:hello@anaisredon.com"
+                target="_blank"
+                rel="nofollow noreferrer noopener"
+                x-data="{'isTriggered': false}"
+                :class="{
+              'animation-slide-right': window.innerWidth >= 1024 ? isTriggered : false,
+              'animation-slide-down': window.innerWidth < 1024 ? isTriggered : false
+            }"
+                class="
+                  animation-ease-out
+                  animation-duration-1000
+                  animation-delay-1500
+                  border
+                  transform
+                  rounded-full
+                  text-primary
+                  opacity-0
+                  border-primary
+                  p-1
+                "
+                x-init="isTriggered = true"
+              >
+                <img
+                  class="h-5 lg:w-5"
+                  src="./src/img/email.svg"
+                  alt="Logo d'une boîte mail"
+                />
+              </a>
+            </div>
+            <div
+              class="
+                ml-6
+                origin-top-left
+                rotate-90
+                whitespace-nowrap
+                text-xs
+                uppercase
+                text-secondary
+              "
+            >
+              Venez découvrir
+            </div>
+          </aside>
         </div>
       </section>
+      <section></section>
     </main>
-    <footer class="px-5 py-6 bg-black text-right">
-      <p class="text-white font-body max-w-screen-xl mx-auto">
+    <footer class="bg-black px-5 py-6 text-right">
+      <p class="text-white mx-auto max-w-screen-xl font-body">
         Anaïs Redon – 2020
       </p>
     </footer>
