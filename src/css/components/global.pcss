@@ -1,13 +1,13 @@
 .action {
-  @apply transition rounded-lg inline-flex items-center;
+  @apply inline-flex items-center rounded-lg transition;
 
   &,
   & svg {
-    @apply ease-in-out duration-300;
+    @apply duration-300 ease-in-out;
   }
 
   & svg {
-    @apply transition-transform ml-1;
+    @apply ml-1 transition-transform;
   }
 
   &:focus {
@@ -21,7 +21,7 @@
 
   &:hover {
     & svg {
-      @apply transform translate-x-1;
+      @apply translate-x-1 transform;
     }
   }
 }
@@ -81,6 +81,20 @@
   to {
     opacity: 1;
     transform: translateX(0px);
+  }
+}
+
+.animation-slideshow {
+  animation: scroll 45s linear infinite;
+  width: calc(461px * 8);
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-461px * 4));
   }
 }
 

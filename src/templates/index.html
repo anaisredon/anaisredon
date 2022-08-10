@@ -33,37 +33,210 @@
     <meta property="twitter:image" content="../img/cover.jpg?size=1920" />
   </head>
   <body class="bg-light font-body text-dark antialiased">
-    <header class="mx-auto grid max-w-screen-xl grid-cols-12 pt-7">
-      <div
-        x-data="{'isTriggered': false}"
-        x-cloak
-        :class="{'animation-slide-down': isTriggered}"
-        class="animation-ease-out animation-duration-1000 col-span-7 opacity-0"
-        x-init="isTriggered = true"
-      >
-        <span class="font-title text-xl text-primary">a</span
-        ><span class="ml-4 text-xs uppercase tracking-widest text-secondary"
-          >Direction artistique</span
-        >
+    <header class="relative">
+      <div class="absolute h-full w-full">
+        <div class="mx-auto grid h-full w-full max-w-screen-xl grid-cols-12">
+          <div class="col-start-3 h-full w-px bg-secondary"></div>
+          <div class="col-span-6 mx-auto h-full w-px bg-secondary"></div>
+          <div class="col-start-10 ml-auto h-full w-px bg-secondary"></div>
+        </div>
       </div>
-      <div class="col-span-4 col-start-8 mt-auto h-3 w-full bg-dark"></div>
+      <div
+        class="
+          relative
+          flex
+          max-w-screen-xl
+          flex-wrap
+          justify-between
+          pt-7
+          lg:mx-auto lg:grid lg:grid-cols-12 lg:gap-5
+        "
+      >
+        <div
+          x-data="{'isTriggered': false}"
+          x-cloak
+          :class="{'animation-slide-down': isTriggered}"
+          class="
+            animation-ease-out animation-duration-1000
+            flex
+            items-baseline
+            pl-5
+            opacity-0
+            lg:col-span-7 lg:items-center
+          "
+          x-init="isTriggered = true"
+        >
+          <span class="font-title text-xl text-primary">a</span
+          ><span
+            class="
+              ml-4
+              hidden
+              text-xs
+              uppercase
+              tracking-widest
+              text-secondary
+              lg:block
+            "
+            >Direction artistique</span
+          >
+          <h2 class="ml-3 text-xl lg:hidden lg:text-3xl">
+            <span class="font-bold">Graphisme</span><br /><span
+              class="text-secondary"
+              >& Illustrations</span
+            >
+          </h2>
+        </div>
+        <div class="flex items-center justify-end space-x-2 pr-5 lg:hidden">
+          <a
+            href="https://www.behance.net/anaisredon"
+            target="_blank"
+            rel="nofollow noreferrer noopener"
+            x-cloak
+            x-data="{'isTriggered': false}"
+            :class="{
+              'animation-slide-right': window.innerWidth >= 1024 ? isTriggered : false,
+              'animation-slide-down': window.innerWidth < 1024 ? isTriggered : false
+                }"
+            class="
+              animation-ease-out animation-duration-1000
+              transform
+              text-primary
+              opacity-0
+            "
+            x-init="isTriggered = true"
+          >
+            <img
+              class="h-8"
+              src="./src/img/behance.svg"
+              alt="Logo de Behance"
+            />
+          </a>
+          <a
+            href="https://www.linkedin.com/in/anaisredon/"
+            target="_blank"
+            rel="nofollow noreferrer noopener"
+            x-data="{'isTriggered': false}"
+            :class="{
+              'animation-slide-right': window.innerWidth >= 1024 ? isTriggered : false,
+              'animation-slide-down': window.innerWidth < 1024 ? isTriggered : false
+            }"
+            class="
+              animation-ease-out animation-duration-1000 animation-delay-500
+              transform
+              rounded-full
+              text-primary
+              opacity-0
+            "
+            x-init="isTriggered = true"
+          >
+            <img
+              class="h-8"
+              src="./src/img/linkedin.svg"
+              alt="Logo de LinkedIn"
+            />
+          </a>
+          <a
+            href="https://www.instagram.com/_anaitha/"
+            target="_blank"
+            rel="nofollow noreferrer noopener"
+            x-data="{'isTriggered': false}"
+            :class="{
+              'animation-slide-right': window.innerWidth >= 1024 ? isTriggered : false,
+              'animation-slide-down': window.innerWidth < 1024 ? isTriggered : false
+            }"
+            class="
+              animation-ease-out animation-duration-1000 animation-delay-1000
+              transform
+              rounded-full
+              text-primary
+              opacity-0
+            "
+            x-init="isTriggered = true"
+          >
+            <img
+              class="h-8"
+              src="./src/img/instagram.svg"
+              alt="Logo d'Instagram"
+            />
+          </a>
+          <a
+            href="mailto:hello@anaisredon.com"
+            target="_blank"
+            rel="nofollow noreferrer noopener"
+            x-data="{'isTriggered': false}"
+            :class="{
+              'animation-slide-right': window.innerWidth >= 1024 ? isTriggered : false,
+              'animation-slide-down': window.innerWidth < 1024 ? isTriggered : false
+            }"
+            class="
+              animation-ease-out animation-duration-1000 animation-delay-1500
+              transform
+              rounded-full
+              text-primary
+              opacity-0
+            "
+            x-init="isTriggered = true"
+          >
+            <img
+              class="h-8"
+              src="./src/img/email.svg"
+              alt="Logo d'une boîte mail"
+            />
+          </a>
+        </div>
+        <div
+          class="
+            z-10
+            mt-6
+            h-[6px]
+            w-1/2
+            bg-dark
+            lg:col-span-4 lg:col-start-8 lg:mt-auto lg:h-3 lg:w-full
+          "
+        ></div>
+      </div>
     </header>
 
     <main>
-      <section class="mx-auto flex max-w-screen-xl">
-        <div class="relative grid grid-cols-12">
+      <section class="relative">
+        <div class="absolute h-full w-full">
+          <div class="mx-auto grid h-full w-full max-w-screen-xl grid-cols-12">
+            <div class="col-start-3 h-full w-px bg-secondary"></div>
+            <div class="col-span-6 mx-auto h-full w-px bg-secondary"></div>
+            <div class="col-start-10 ml-auto h-full w-px bg-secondary"></div>
+          </div>
+        </div>
+        <div
+          class="relative mx-auto grid max-w-screen-xl grid-cols-12 lg:gap-5"
+        >
           <div
             class="
               absolute
               z-[-1]
-              col-span-8 col-start-4
+              col-span-8
               h-full
-              w-full
+              w-10/12
               bg-secondary
+              lg:col-start-4 lg:w-full
             "
           ></div>
-          <div class="col-span-6 py-20">
-            <h2 class="text-3xl">
+          <div
+            class="
+              absolute
+              left-[50%]
+              order-2
+              h-full
+              w-full
+              lg:static
+              lg:left-0
+              lg:order-1
+              lg:col-span-6
+              lg:h-auto
+              lg:w-auto
+              lg:py-20
+            "
+          >
+            <h2 class="hidden text-3xl lg:block">
               <span class="font-bold">Graphisme</span><br /><span
                 class="text-secondary"
                 >& Illustrations</span
@@ -85,6 +258,8 @@
                   animation-ease-out
                   animation-duration-1000
                   animation-delay-1500
+                  h-full
+                  w-full
                   transform
                   opacity-0
                   blur
@@ -95,36 +270,60 @@
               />
             </picture>
           </div>
-          <div class="col-span-5 flex flex-col py-20">
+          <div
+            class="
+              order-2
+              col-span-12
+              flex flex-col
+              px-5
+              py-20
+              lg:order-1 lg:col-span-5 lg:px-0
+            "
+          >
             <div
               class="animation-ease-out animation-duration-1000"
               x-data="{'isTriggered': false}"
               :class="{'animation-slide-down': isTriggered}"
               x-init="isTriggered = true"
             >
-              <h1 class="grid grid-cols-5 font-title text-[140px] leading-none">
-                <span class="col-span-5">Anaïs</span
-                ><span class="col-span-4 col-start-2 -ml-3">Redon</span>
+              <h1
+                class="
+                  grid grid-cols-1
+                  font-title
+                  text-6xl
+                  leading-none
+                  lg:grid-cols-5 lg:text-[140px]
+                "
+              >
+                <span class="lg:col-span-5">Anaïs</span
+                ><span class="ml-6 lg:col-span-4 lg:col-start-2 lg:-ml-3"
+                  >Redon</span
+                >
               </h1>
               <h2
                 class="
-                  absolute
-                  top-0
-                  right-0
-                  mt-[87px]
-                  mr-10
+                  ml-[26px]
                   font-semibold
                   uppercase
+                  lg:absolute lg:top-0 lg:right-0 lg:mt-[87px] lg:mr-10 lg:ml-0
                 "
               >
                 Bordeaux
               </h2>
             </div>
 
-            <div class="grid h-full grid-cols-5">
-              <div class="col-span-3 col-start-2 flex flex-col justify-between">
-                <div>
-                  <p class="">
+            <div class="mt-16 grid h-full lg:grid-cols-5">
+              <div
+                class="
+                  flex
+                  w-1/2
+                  flex-col
+                  justify-between
+                  lg:col-span-3 lg:col-start-2 lg:w-auto
+                "
+              >
+                <div class="hidden lg:block">
+                  <p>
                     Née au Japon d’une famille purement scientifique, ma passion
                     a rompu avec les codes familiaux. Depuis que je suis en
                     capacité de tenir un crayon, je me nourris de cette passion.
@@ -137,12 +336,13 @@
                   <p class="mt-6">
                     C’est par mon apprentissage et mes expériences que ma
                     sensibilité au luxe s’est précisée, me permettant d‘orienter
-                    mes créations vers cet univers, à la recherche de finesse et
-                    de précision.
+                    mes créations vers cet univers, à la recherche de
+                    <strong><i>finesse et de précision</i></strong
+                    >.
                   </p>
                 </div>
 
-                <p class="">
+                <p>
                   Découvrez mon projet Anaitha sur<br /><a
                     href="https://www.instagram.com/_anaitha/"
                     target="_blank"
@@ -165,51 +365,39 @@
               </div>
             </div>
           </div>
-          <aside class="order-first col-span-1 flex lg:order-last">
+          <aside class="col-span-1 hidden lg:flex order-last">
             <div
               class="
-                flex
-                items-center
-                justify-end
-                space-x-4 space-x-4
-                px-5
-                py-2
-                lg:flex-col
-                lg:flex-col
-                lg:justify-start
-                lg:space-x-0
-                lg:space-y-4
-                lg:space-x-0
-                lg:space-y-4
-                lg:px-3
-                lg:py-0
+                flex flex-col
+                items-center items-center
+                justify-start
+                space-x-0 space-y-4
+                px-3
+                py-0
               "
             >
               <a
-                href="https://www.instagram.com/_anaitha/"
+                href="https://www.behance.net/anaisredon"
                 target="_blank"
                 rel="nofollow noreferrer noopener"
+                x-cloak
                 x-data="{'isTriggered': false}"
                 :class="{
               'animation-slide-right': window.innerWidth >= 1024 ? isTriggered : false,
               'animation-slide-down': window.innerWidth < 1024 ? isTriggered : false
-            }"
+                }"
                 class="
                   animation-ease-out animation-duration-1000
-                  border
                   transform
-                  rounded-full
                   text-primary
                   opacity-0
-                  border-primary
-                  p-1
                 "
                 x-init="isTriggered = true"
               >
                 <img
-                  class="h-5 lg:w-5"
-                  src="./src/img/instagram.svg"
-                  alt="Logo d'Instagram"
+                  class="h-8"
+                  src="./src/img/behance.svg"
+                  alt="Logo de Behance"
                 />
               </a>
               <a
@@ -223,50 +411,43 @@
             }"
                 class="
                   animation-ease-out animation-duration-1000 animation-delay-500
-                  border
                   transform
                   rounded-full
                   text-primary
                   opacity-0
-                  border-primary
-                  p-1
                 "
                 x-init="isTriggered = true"
               >
                 <img
-                  class="h-5 lg:w-5"
+                  class="h-8"
                   src="./src/img/linkedin.svg"
                   alt="Logo de LinkedIn"
                 />
               </a>
               <a
-                href="https://www.behance.net/anaisredon"
+                href="https://www.instagram.com/_anaitha/"
                 target="_blank"
                 rel="nofollow noreferrer noopener"
-                x-cloak
                 x-data="{'isTriggered': false}"
                 :class="{
               'animation-slide-right': window.innerWidth >= 1024 ? isTriggered : false,
               'animation-slide-down': window.innerWidth < 1024 ? isTriggered : false
-                }"
+            }"
                 class="
                   animation-ease-out
                   animation-duration-1000
                   animation-delay-1000
-                  border
                   transform
                   rounded-full
                   text-primary
                   opacity-0
-                  border-primary
-                  p-1
                 "
                 x-init="isTriggered = true"
               >
                 <img
-                  class="h-5 lg:w-5"
-                  src="./src/img/behance.svg"
-                  alt="Logo de Behance"
+                  class="h-8"
+                  src="./src/img/instagram.svg"
+                  alt="Logo d'Instagram"
                 />
               </a>
               <a
@@ -282,18 +463,15 @@
                   animation-ease-out
                   animation-duration-1000
                   animation-delay-1500
-                  border
                   transform
                   rounded-full
                   text-primary
                   opacity-0
-                  border-primary
-                  p-1
                 "
                 x-init="isTriggered = true"
               >
                 <img
-                  class="h-5 lg:w-5"
+                  class="h-8"
                   src="./src/img/email.svg"
                   alt="Logo d'une boîte mail"
                 />
@@ -314,12 +492,199 @@
             </div>
           </aside>
         </div>
+        <div class="grid grid-cols-12 py-12 lg:hidden">
+          <div class="col-span-12 col-start-3 px-5">
+            <p>
+              Née au Japon d’une famille purement scientifique, ma passion a
+              rompu avec les codes familiaux. Depuis que je suis en capacité de
+              tenir un crayon, je me nourris de cette passion. De l’atelier
+              créatif, au cours de peinture, en passant par le dessin d’analyse
+              ou le manga, la curiosité m’a poussé à découvrir un maximum de
+              technique et de média afin de mieux affiner mon style.
+            </p>
+
+            <p class="mt-6">
+              C’est par mon apprentissage et mes expériences que ma sensibilité
+              au luxe s’est précisée, me permettant d‘orienter mes créations
+              vers cet univers, à la recherche de
+              <strong><i>finesse et de précision</i></strong
+              >.
+            </p>
+          </div>
+        </div>
       </section>
-      <section></section>
+      <section class="relative bg-dark">
+        <div class="absolute h-full w-full">
+          <div class="mx-auto grid h-full w-full max-w-screen-xl grid-cols-12">
+            <div class="col-start-3 h-full w-px bg-secondary"></div>
+            <div class="col-span-6 mx-auto h-full w-px bg-secondary"></div>
+            <div class="col-start-10 ml-auto h-full w-px bg-secondary"></div>
+          </div>
+        </div>
+        <div class="relative h-full overflow-hidden">
+          <div class="animation-slideshow absolute flex items-start">
+            <div class="w-[260px] p-5 lg:w-[461px] lg:p-12">
+              <img
+                src="../img/padam.png?size=64"
+                data-src="../img/padam.png?size=720"
+                sizes="100vw"
+                loading="lazy"
+                alt="Illustration du projet Padam"
+                class="lazyload mt-40 w-full"
+              />
+            </div>
+            <div class="w-[260px] p-5 lg:w-[461px] lg:p-12">
+              <img
+                src="../img/evades.png?size=64"
+                data-src="../img/evades.png?size=720"
+                sizes="100vw"
+                loading="lazy"
+                alt="Illustration du projet Évadés"
+                class="lazyload mt-12 w-full"
+              />
+            </div>
+            <div class="w-[260px] p-5 lg:w-[461px] lg:p-12">
+              <img
+                src="../img/guerlain.png?size=64"
+                data-src="../img/guerlain.png?size=720"
+                sizes="100vw"
+                loading="lazy"
+                alt="Illustration du projet Guerlain"
+                class="lazyload mt-96 w-full"
+              />
+            </div>
+            <div class="w-[260px] p-5 lg:w-[461px] lg:p-12">
+              <img
+                src="../img/maysou.png?size=64"
+                data-src="../img/maysou.png?size=720"
+                sizes="100vw"
+                loading="lazy"
+                alt="Illustration du projet Maysou"
+                class="lazyload mt-56 w-full"
+              />
+            </div>
+            <div class="w-[260px] p-5 lg:w-[461px] lg:p-12">
+              <img
+                src="../img/padam.png?size=64"
+                data-src="../img/padam.png?size=720"
+                sizes="100vw"
+                loading="lazy"
+                alt="Illustration du projet Padam"
+                class="lazyload mt-40 w-full"
+              />
+            </div>
+            <div class="w-[260px] p-5 lg:w-[461px] lg:p-12">
+              <img
+                src="../img/evades.png?size=64"
+                data-src="../img/evades.png?size=720"
+                sizes="100vw"
+                loading="lazy"
+                alt="Illustration du projet Évadés"
+                class="lazyload mt-12 w-full"
+              />
+            </div>
+            <div class="w-[260px] p-5 lg:w-[461px] lg:p-12">
+              <img
+                src="../img/guerlain.png?size=64"
+                data-src="../img/guerlain.png?size=720"
+                sizes="100vw"
+                loading="lazy"
+                alt="Illustration du projet Guerlain"
+                class="lazyload mt-96 w-full"
+              />
+            </div>
+            <div class="w-[260px] p-5 lg:w-[461px] lg:p-12">
+              <img
+                src="../img/maysou.png?size=64"
+                data-src="../img/maysou.png?size=720"
+                sizes="100vw"
+                loading="lazy"
+                alt="Illustration du projet Maysou"
+                class="lazyload mt-56 w-full"
+              />
+            </div>
+          </div>
+          <div
+            class="
+              relative
+              z-10
+              mx-auto
+              grid
+              max-w-screen-xl
+              grid-cols-12
+              py-60
+              lg:py-80
+            "
+          >
+            <div class="col-span-12">
+              <h1
+                class="
+                  grid grid-cols-12
+                  font-title
+                  text-6xl
+                  leading-none
+                  text-light
+                  lg:text-[100px]
+                "
+              >
+                <span class="col-start-5">Gallerie</span
+                ><span class="col-start-2">Graphique</span>
+              </h1>
+            </div>
+            <p
+              class="
+                col-span-5 col-start-7
+                ml-2
+                mt-6
+                text-light
+                lg:col-span-12 lg:col-start-4 lg:mt-20 lg:ml-0
+              "
+            >
+              Découvrez mon univers sur <br /><a
+                href="https://www.behance.net/anaisredon"
+                target="_blank"
+                rel="nofollow noopener noreferrer"
+                class="
+                  action
+                  mt-auto
+                  font-bold
+                  uppercase
+                  tracking-widest
+                  text-primary
+                "
+                >Behance
+                <img
+                  src="./src/img/arrow.svg"
+                  class="-mt-px w-3 fill-current"
+                  alt="Icône d'une flèche"
+              /></a>
+            </p>
+          </div>
+        </div>
+      </section>
     </main>
-    <footer class="bg-black px-5 py-6 text-right">
-      <p class="text-white mx-auto max-w-screen-xl font-body">
-        Anaïs Redon – 2020
+    <footer class="relative bg-dark">
+      <div class="absolute h-full w-full">
+        <div class="mx-auto grid h-full w-full max-w-screen-xl grid-cols-12">
+          <div class="col-start-3 h-full w-px bg-secondary"></div>
+          <div class="col-span-6 mx-auto h-full w-px bg-secondary"></div>
+          <div class="col-start-10 ml-auto h-full w-px bg-secondary"></div>
+        </div>
+      </div>
+      <p
+        class="
+          mx-auto
+          max-w-screen-xl
+          px-5
+          py-6
+          text-right
+          font-body
+          text-xs
+          tracking-widest
+          text-light
+        "
+      >
+        © 2022 • ANAÏS REDON
       </p>
     </footer>
   </body>
