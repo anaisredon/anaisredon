@@ -1,9 +1,3 @@
-import styles from "../css/app.pcss";
-import PtSansRegular from "../fonts/pt-sans-regular.woff2";
-import AvianoBold from "../fonts/aviano-bold.woff2";
-import FuturaStdBold from "../fonts/futura-std-bold.woff2";
-import FuturaStdBook from "../fonts/futura-std-book.woff2";
-
 // App main
 const main = async () => {
   const LazySizes = await import("lazysizes");
@@ -12,7 +6,7 @@ const main = async () => {
   );
   LazySizes.init();
 
-  await import("alpinejs");
+  import("alpinejs");
 };
 
 main().then(() => {});

@@ -1,37 +1,20 @@
 const defaultTheme = require("tailwindcss/defaultTheme");
 
 module.exports = {
-  future: {
-    // removeDeprecatedGapUtilities: true,
-    // purgeLayersByDefault: true,
-  },
-  purge: [],
+  content: ["./src/**/*.{html,js,jsx,ts,tsx,vue}"],
   theme: {
-    screens: {
-      xs: "360px",
-      ...defaultTheme.screens
-    },
     fontFamily: {
-      title: ["Aviano", ...defaultTheme.fontFamily.serif],
-      subtitle: ["PT Sans", ...defaultTheme.fontFamily.sans],
-      body: ["Futura", ...defaultTheme.fontFamily.sans]
+      title: ["Tangerine", ...defaultTheme.fontFamily.serif],
+      body: ["Montserrat", ...defaultTheme.fontFamily.sans],
     },
-    extend: {
-      spacing: {
-        "72": "18rem",
-        "84": "21rem",
-        "96": "24rem"
-      },
-      fontSize: {
-        "7xl": "5rem",
-        "8xl": "6rem"
-      },
-      letterSpacing: {
-        "widest-xl": "0.15em"
-      }
-    }
+    colors: {
+      current: "currentColor",
+      dark: "#241C18",
+      primary: "#D8564D",
+      secondary: "#BDB5AD",
+      light: "#F9F7F1",
+    },
   },
-  variants: {
-  },
-  plugins: []
+  variants: {},
+  plugins: [],
 };
