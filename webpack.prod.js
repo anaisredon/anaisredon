@@ -196,8 +196,8 @@ module.exports = {
     new FaviconsWebpackPlugin({
       logo: "./src/img/favicon.svg",
       cache: true,
-      outputPath: "/img",
-      prefix: "/dist/img/",
+      outputPath: "./img",
+      prefix: "./dist/img/",
       inject: true,
     }),
     new ImageMinimizerPlugin({
