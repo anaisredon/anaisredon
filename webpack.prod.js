@@ -65,14 +65,10 @@ module.exports = {
     rules: [
       {
         test: /\.(ttf|eot|woff2?)$/i,
-        use: [
-          {
-            loader: "file-loader",
-            options: {
-              name: "fonts/[name].[ext]",
-            },
-          },
-        ],
+        type: "asset/resource",
+        generator: {
+          filename: "fonts/[name][ext]",
+        },
       },
       {
         test: /\.(png|jpe?g|gif|webp)$/i,
@@ -81,7 +77,7 @@ module.exports = {
             loader: "responsive-loader",
             options: {
               adapter: require("responsive-loader/sharp"),
-              name: "img/[name]-[width].[hash].[ext]",
+              name: "img/[name]-[width].[ext]",
             },
           },
         ],
