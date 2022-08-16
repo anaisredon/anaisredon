@@ -193,7 +193,7 @@ module.exports = {
       logo: "./src/img/favicon.svg",
       cache: true,
       outputPath: "./img",
-      prefix: "./dist/img/",
+      prefix: "/dist/img/",
       inject: true,
     }),
     new ImageMinimizerPlugin({
